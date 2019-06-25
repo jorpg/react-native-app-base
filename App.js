@@ -14,24 +14,27 @@ YellowBox.ignoreWarnings([
 ]);
 
 import AuthLoadingScreen from "./src/modules/auth/AuthLoading";
-import LoginScreen from "./src/modules/auth/LoginScreen";
+import AuthScreen from "./src/modules/auth/AuthScreen";
+import ForgotScreen from "./src/modules/auth/ForgotScreen"
 
 import HomeScreen from "./src/modules/home/HomeScreen";
+import { AUTH_ROUTE, FORGOT_ROUTE, HOME_ROUTE, AUTHSWITCH_ROUTE, APP_ROUTE } from "./src/constants/routes";
 
 export const AuthStack = createStackNavigator({
-  Login: { screen: LoginScreen }
+  [AUTH_ROUTE]: { screen: AuthScreen },
+  [FORGOT_ROUTE]: { screen: ForgotScreen }
 });
 
 export const AppStack = createStackNavigator({
-  Home: { screen: HomeScreen }
+  [HOME_ROUTE]: { screen: HomeScreen }
 });
 
 export default createAppContainer(
   createSwitchNavigator(
     {
       AuthLoading: AuthLoadingScreen,
-      App: AppStack,
-      Auth: AuthStack
+      [APP_ROUTE]: AppStack,
+      [AUTHSWITCH_ROUTE]: AuthStack
     },
     {
       initialRouteName: "AuthLoading"

@@ -7,6 +7,7 @@ import {
   AsyncStorage
 } from "react-native";
 import { YellowBox } from "react-native";
+import { APP_ROUTE, AUTHSWITCH_ROUTE } from "../../constants/routes";
 YellowBox.ignoreWarnings([
   "Warning: Async Storage has been extracted from react-native core"
 ]);
@@ -23,7 +24,7 @@ class AuthLoadingScreen extends React.Component {
 
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
-    this.props.navigation.navigate(userToken ? "App" : "Auth");
+    this.props.navigation.navigate(userToken ? APP_ROUTE : AUTHSWITCH_ROUTE);
   };
 
   // Render any loading content that you like here

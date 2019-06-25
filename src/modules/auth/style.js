@@ -1,12 +1,13 @@
 import { StyleSheet, Platform, Dimensions } from "react-native";
 import { BLUE_MAIN } from "../../constants/colorPalette";
-var width = Dimensions.get("window").width;
+const {width, height} = Dimensions.get('window');
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+
   },
   logo: {
     width: "75%",
@@ -26,5 +27,10 @@ export default StyleSheet.create({
   },
   underLineColor: {
     backgroundColor: BLUE_MAIN
-  }
+  },
+  bottom: {
+    position: "relative",
+    bottom: 0,
+    width: "100%"
+  },
 });
